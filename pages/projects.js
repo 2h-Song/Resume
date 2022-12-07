@@ -51,7 +51,7 @@ export async function getServerSideProps({}) {
      
       const projectNames = projects.results.map(
         (aProject) => aProject.properties.Name.title[0]?.plain_text
-        // ?조건문 
+        // 
       );
 
       console.log(`projectNames : ${projectNames}`);
