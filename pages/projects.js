@@ -1,11 +1,13 @@
 import Layout from "../pages/components/layout";
 import Head from "next/head";
 import { TOKEN, DATABASE_ID } from "../config/index"
+import ProjectItem from "./components/project/project-item";
 
 export default function Projects({projects}) {
 
     return(
         <Layout>
+            <div className="flex flex-col items-center justify-center min-h-screen px-3 mb-10">
         <Head>
             <title>Song</title>
             <meta name="description" content="송해현 포트폴리오" />
@@ -15,9 +17,13 @@ export default function Projects({projects}) {
                     총 프로젝트 :
                     <span className="pl-4 text-blue-500">{projects.results.length}</span>
                 </h1>
+                <div className="grid grid-cols-1 gap-8 p-12 m-4 md:grid-cols-2">
                 {projects.results.map((aProject)=>
-                    <h1>{aProject.properties.Name.title[0]?.plain_text}</h1>
+                    <ProjectItem key={aProject.id} data={aProject}/>
                 )}
+
+                </div>
+            </div>
         </Layout>
     );
 }
